@@ -67,7 +67,7 @@ const addTask = function(){
     console.log("Add Task...");
     //Create a new list item with the text from the #new-task:
     if (!taskInput.value) return;
-    const listItem = createNewTaskElement(taskInput.value);
+    let listItem = createNewTaskElement(taskInput.value);
 
     //Append listItem to incompleteTaskHolder
     incompleteTaskHolder.appendChild(listItem);
@@ -84,12 +84,12 @@ const editTask = function(){
     console.log("Change 'edit' to 'save'");
 
 
-    const listItem = this.parentNode;
+    let listItem = this.parentNode;
 
-    const editInput = listItem.querySelector('.task__input');
-    const label = listItem.querySelector(".task__title");
-    const editBtn = listItem.querySelector(".btn-edit");
-    const containsClass = listItem.classList.contains(".task_edit-mode");
+    let editInput = listItem.querySelector('.task__input');
+    let label = listItem.querySelector(".task__title");
+    let editBtn = listItem.querySelector(".btn-edit");
+    let containsClass = listItem.classList.contains("task_edit-mode");
     //If class of the parent is .edit-mode
     if(containsClass){
 
@@ -97,7 +97,7 @@ const editTask = function(){
         //label becomes the inputs value.
         label.innerText = editInput.value;
         editBtn.innerText = "Edit";
-    }else{
+    } else {
         editInput.value = label.innerText;
         editBtn.innerText = "Save";
     }
